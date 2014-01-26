@@ -1,8 +1,8 @@
 
 *******************************************
-* rf_analysis_cty.do
+* clean_long.do
 * Last Edited By: Alex Bartik
-* Date Last Edited: 12/20/2013
+* Date Last Edited: 1/26/2013
 *******************************************
 clear all
 mat drop _all
@@ -21,6 +21,9 @@ local DIRECTORY = "`awb_dir1'\`fracfolder'"
 local INPUT "Data\Output\Final\Stata\"
 local RESULTS "Results/"
 local LOG "`RESULTS'/Log/"
+
+* INPUTS 
+local input = "`INPUT'\`geo'_input.dta"
 
 *********************
 * 1.1 LOADING DATA
@@ -58,10 +61,8 @@ gen lemp_tot = log(emp_tot)
 gen linc = log(income_percap)
 gen lpop_tot = log(pop_tot)
 
-
-
 *********************
-* 3  ANALYSIS
+* 2 Coding Gas Variables
 *********************
 local JBTU = 1083/1.2027
 
